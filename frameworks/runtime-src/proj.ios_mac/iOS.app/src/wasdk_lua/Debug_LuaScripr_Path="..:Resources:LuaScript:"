@@ -1,0 +1,33 @@
+Debug_LuaScripr_Path="../Resources/LuaScript/"
+Release_LuaScripr_Path="../Resources/Release_LuaScript/"
+ 
+_TARGET_BUILD_CONTENTS_PATH=$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH
+                     
+#clean LuaScript and Release_LuaScript Directory
+#rm -fr $_TARGET_BUILD_CONTENTS_PATH/src/*
+rm -fr $_TARGET_BUILD_CONTENTS_PATH/src
+                              
+#rm -fr $_TARGET_BUILD_CONTENTS_PATH/src/Release_LuaScript/*
+rm -fr $_TARGET_BUILD_CONTENTS_PATH/src/Release_LuaScript
+                              
+if [ "$CONFIGURATION" = "Debug" ]; then
+   mkdir -p $_TARGET_BUILD_CONTENTS_PATH/src/
+   cp -RLp $Debug_LuaScripr_Path/* $_TARGET_BUILD_CONTENTS_PATH/src/          
+else
+   mkdir -p $_TARGET_BUILD_CONTENTS_PATH/src/Release_LuaScript/
+   cp -RLp $Release_LuaScripr_Path/* $_TARGET_BUILD_CONTSENTS_PATH/src/Release_LuaScript/
+fi
+
+
+Debug_LuaScripr_Path="${SRCROOT}/../../../src/"
+ 
+_TARGET_BUILD_CONTENTS_PATH=$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH
+                     
+#clean LuaScript and Release_LuaScript Directory
+
+rm -fr $_TARGET_BUILD_CONTENTS_PATH/src
+                              
+mkdir -p $_TARGET_BUILD_CONTENTS_PATH/src/
+cp -RLp $Debug_LuaScripr_Path/* $_TARGET_BUILD_CONTENTS_PATH/src/  
+
+fi
